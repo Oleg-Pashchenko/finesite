@@ -20,3 +20,31 @@ def targets(request: HttpRequest):
 
 def notes(request: HttpRequest):
     return render(request, 'app/home/home.html')
+
+
+def add_transaction(request: HttpRequest):
+    return render(request, 'app/home/home.html')
+
+
+def add_note(request: HttpRequest):
+    return render(request, 'app/home/home.html')
+
+
+def view_note(request: HttpRequest):
+    return render(request, 'app/home/home.html')
+
+
+def add_target(request: HttpRequest):
+    return render(request, 'app/home/home.html')
+
+
+def view_target(request: HttpRequest):
+    return render(request, 'app/home/home.html')
+
+
+def add_task(request: HttpRequest):
+    return render(request, 'app/home/home.html')
+
+
+def view_task(request: HttpRequest):
+    return render(request, 'app/home/home.html')

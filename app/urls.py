@@ -11,7 +11,7 @@ urlpatterns = [
     path('add-transaction/', views.add_transaction, name='add_transaction'),
 
     path('add-note/', views.add_note, name='add_note'),
-    path('view-note/<int:note_id>', views.add_note, name='add_note'),
+    path('view-note/<int:note_id>', views.view_note, name='add_note'),
 
     path('add-target/', views.add_target, name='add_target'),
     path('view-target/<int:target_id>', views.view_target, name='view_target'),
