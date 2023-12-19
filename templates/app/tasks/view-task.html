@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "core/base.html" %}
 
-</body>
-</html>
+{% block content %}
+
+    <div class="container">
+        <div class="card mx-auto mt-5" style="width: 50rem;">
+
+            <div class="card-body">
+                <h5 class="card-title">{{ x.id }}</h5>
+                <p class="card-text">{{ x.text }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Дата создания: {{ x.creation_date }}</li>
+                <li class="list-group-item">Конечная дата: {{ x.to_date}}</li>
+                <li class="list-group-item">Статус:{{ xis_finished}}</li>
+            </ul>
+        </div>
+
+
+    </div>
+{% endblock %}

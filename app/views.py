@@ -13,7 +13,7 @@ def finance(request: HttpRequest):
 
 
 def tasks(request: HttpRequest):
-    return render(request, 'app/home/home.html', {'tasks': Task.objects.all().filter(user_id=request.user)})
+    return render(request, 'app/tasks/view-tasks.html')
 
 
 def targets(request: HttpRequest):
@@ -45,8 +45,8 @@ def view_target(request: HttpRequest):
 
 
 def add_task(request: HttpRequest):
-    return render(request, 'app/home/home.html')
+    return render(request, 'app/tasks/add-task.html')
 
 
 def view_task(request: HttpRequest):
-    return render(request, 'app/home/home.html')
+    return render(request, 'app/tasks/view-task.html')

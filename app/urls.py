@@ -17,7 +17,7 @@ urlpatterns = [
     path('view-target/<int:target_id>', views.view_target, name='view_target'),
 
     path('add-task/', views.add_task, name='add_task'),
-    path('view-tasks/<int:task_id>', views.view_task, name='view_task'),
+    path('view-tasks', views.view_task, name='view_task'),
 
 
 ]

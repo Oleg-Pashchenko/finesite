@@ -1,12 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{% for task in tasks %}
-    <div> {{ task.name }} </div>
-{% endfor %}
-</body>
-</html>
+{% extends "core/base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class=" mt-4 " style="display: flex; justify-content: center;">
+            <table style="background-color: #2b2b2b;" class="table table-dark table-hover">
+                <thead class="bg-primary">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Дата создания</th>
+                    <th scope="col">Статус</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for x in users %}
+                    <tr>
+                        <th scope="row">{{ x.id }}</th>
+                        <td>{{ x.creation_date}}</td>
+                        <td>{{ x.is_finished}}</td>
+                        <td>
+                            <a href="{% url 'view-task' user_id=x.id %}"
+                               class="btn btn-outline-primary btn-sm">Перейти</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+ <script>
+        <!--window.open('/admin/user', '_blank'); -->
+        function redirectToUserPage(userId) {
+            // Формируем URL с параметром userId
+            const url = `/view-task/${userId}`;
+            // Открываем новое окно браузера с сформированным URL
+            window.open(url, '_blank');
+        }
+
+    </script>
