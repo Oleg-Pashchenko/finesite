@@ -1,0 +1,94 @@
+<!doctype  html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Avatarex{% endblock %}</title>
+    <!-- Include Bootstrap CSS here -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/main_css.css' %}">
+
+
+</head>
+<body>
+<div class="vh1">
+    <nav class="navbar navbar-expand-xl navbar-light header-container navbar-dark text-white newnav ">
+        <a data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+           aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </a>
+        <div class="navbar-collapse collapse" id="navbarNav">
+            <ul class="navbar-nav  flex-grow-1 justify-content-between px-5">
+                <li class="nav-item">
+                    <a class="nav-item nav-link" href="{% url 'home' %}">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link" href="{% url 'finance' %}">Финансы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link" href="{% url 'tasks' %}">Задачи</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link" href="{% url 'targets' %}">Цели</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link" href="{% url 'notes' %}">Заметки</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+
+
+    <div class="row justify-content-center m-5" style="position: absolute">
+        <div class="col-12">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Add this script tag to your HTML document -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var currentUrl = window.location.pathname;
+
+        currentUrl = currentUrl.substr(1);
+
+        $('.navbar-nav a').each(function () {
+            var href = $(this).attr('href').substr(1);
+            if (currentUrl.indexOf(href) !== -1) {
+                $(this).closest('li').addClass('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>
