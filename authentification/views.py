@@ -38,7 +38,7 @@ def register(request: HttpRequest):
             messages.warning(request, "Form submission error!")
     else:
         form = UserRegisterForm()
-    return render(request, 'authentification/html/../templates/authentification/register.html', {'form': form})
+    return render(request, 'authentification/register.html', {'form': form})
 
 
 def login_view(request: HttpRequest):
@@ -58,7 +58,7 @@ def login_view(request: HttpRequest):
             messages.warning(request, 'Invalid form submission!')
     else:
         form = UserLoginForm()
-    return render(request, 'authentification/html/../templates/authentification/login.html', {'form': form})
+    return render(request, 'authentification/login.html', {'form': form})
 
 
 def logout_view(request: HttpRequest):
